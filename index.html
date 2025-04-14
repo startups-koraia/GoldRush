@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 골드 러쉬 파트너스</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts - Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        .process-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 4rem 0;
+            gap: 10px;
+        }
+
+        .process-step {
+            text-align: center;
+            flex: 1;
+            min-width: 220px;
+            margin: 0 15px 20px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(45, 91, 255, 0.3);
+            position: relative;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .process-step h3 {
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            width: 100%;
+            text-align: center;
+        }
+
+        .process-step p {
+            color: #64748b;
+            font-size: 0.95rem;
+            text-align: center;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        .process-arrow {
+            transform: rotate(90deg);
+            width: 40px;
+            height: 2px;
+            background: var(--gradient-primary);
+            position: relative;
+            margin: 20px auto;
+            display: none;
+        }
+
+        .process-arrow::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: -5px;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 8px solid var(--primary-color);
+        }
+
+        /* 데스크톱에서는 가로 배열 */
+        @media (min-width: 992px) {
+            .process-diagram {
+                flex-direction: row;
+            }
+
+            .process-arrow {
+                transform: rotate(0);
+                width: 60px;
+                margin: 35px 5px;
+                display: block;
+            }
+        }
+
+        /* 모바일에서는 세로 배열 */
+        @media (max-width: 991px) {
+            .process-diagram {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .process-step {
+                margin-bottom: 40px;
+                max-width: 320px;
+            }
+
+            .process-arrow {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 헤더는 header.js에서 자동으로 삽입됩니다 -->
+
+    <!-- 메인 컨텐츠 -->
+    <main>
+        <!-- 히어로 섹션 -->
+        <section class="hero">
+            <div class="hero-particles" id="particles-js"></div>
+            <div class="hero-content">
+                <div class="hero-badge">미래를 선도하는 AI 기술 투자</div>
+                <h1 class="hero-title ">한국 AI 기술,<br>세계를 선도하다</h1>
+                <p class="hero-subtitle">한국인공지능협회와 피앤에프글로벌이 함께하는 AI 골드 러쉬 파트너스</p>
+                <div class="cta-buttons">
+                    <a href="about.html" class="btn btn-primary">AI 챔피언 로드 알아보기</a>
+                    <a href="apply.html" class="btn btn-secondary">투자 신청하기</a>
+                </div>
+                <!-- <div class="scroll-down-indicator">
+                    <span>스크롤</span>
+                    <i class="scroll-arrow"></i>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- 핵심 가치 제안 섹션 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">핵심 가치 제안</h2>
+                <div class="row">
+                    <div class="col-3 fade-in-up">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-icon">
+                                    <img src="https://avatar.iran.liara.run/username?username=Acott+Iilson" alt="혁신 아이콘" class="value-icon">
+                                </div>
+                                <h3 class="card-title">기술 혁신 지원</h3>
+                                <p class="card-text">최첨단 AI 기술 개발을 위한 자금 및 전문가 컨설팅 제공</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-icon">
+                                    <img src="https://avatar.iran.liara.run/username?username=Acott+Iilson" alt="성장 아이콘" class="value-icon">
+                                </div>
+                                <h3 class="card-title">지속 가능한 성장</h3>
+                                <p class="card-text">단계별 맞춤형 투자로 안정적이고 지속 가능한 기업 성장 지원</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-icon">
+                                    <img src="https://avatar.iran.liara.run/username?username=Acott+Iilson" alt="네트워크 아이콘" class="value-icon">
+                                </div>
+                                <h3 class="card-title">글로벌 네트워크</h3>
+                                <p class="card-text">국내외 투자자 및 파트너사와의 연결을 통한 사업 확장 기회</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-icon">
+                                    <img src="https://avatar.iran.liara.run/username?username=Acott+Iilson" alt="전문성 아이콘" class="value-icon">
+                                </div>
+                                <h3 class="card-title">전문가 멘토링</h3>
+                                <p class="card-text">AI 산업 전문가들의 맞춤형 비즈니스 및 기술 멘토링 제공</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 금융 지원 유형 섹션 -->
+        <section class="section light-bg">
+            <div class="container">
+                <h2 class="section-title">금융 지원 유형</h2>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="investment-tab">투자</button>
+                        <button class="tab-button" data-tab="loan-tab">대출</button>
+                        <button class="tab-button" data-tab="ma-tab">M&A</button>
+                        <button class="tab-button" data-tab="ipo-tab">상장</button>
+                    </div>
+                    <div class="tab-contents">
+                        <div id="investment-tab" class="tab-content active">
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="투자 이미지" class="tab-image">
+                                </div>
+                                <div class="col-6">
+                                    <h3>투자 지원</h3>
+                                    <p>시드 투자부터 시리즈 투자까지 기업의 성장 단계에 맞는 맞춤형 투자 솔루션을 제공합니다. 한국인공지능협회의 기술 검증을 통과한 기업에게 우선적인
+                                        투자 기회가 주어집니다.</p>
+                                    <ul class="feature-list">
+                                        <li>시드 투자: 1억원 ~ 5억원</li>
+                                        <li>시리즈 A: 5억원 ~ 30억원</li>
+                                        <li>시리즈 B 이상: 30억원 ~ 100억원</li>
+                                    </ul>
+                                    <a href="investment-structure.html" class="btn btn-primary">금융 지원 옵션 자세히 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="loan-tab" class="tab-content">
+                            <!-- 대출 탭 내용 -->
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="대출 이미지" class="tab-image">
+                                </div>
+                                <div class="col-6">
+                                    <h3>대출 지원</h3>
+                                    <p>일반 금융기관보다 유리한 조건의 AI 기업 맞춤형 대출 상품을 제공합니다. 협회의 추천을 통해 신용도 평가에 기술력이 반영된 특별 대출 조건을
+                                        적용받을 수 있습니다.</p>
+                                    <ul class="feature-list">
+                                        <li>운영 자금 대출: 최대 10억원</li>
+                                        <li>기술 개발 자금 대출: 최대 20억원</li>
+                                        <li>시설 투자 자금 대출: 최대 30억원</li>
+                                    </ul>
+                                    <a href="investment-structure.html" class="btn btn-primary">금융 지원 옵션 자세히 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ma-tab" class="tab-content">
+                            <!-- M&A 탭 내용 -->
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="M&A 이미지" class="tab-image">
+                                </div>
+                                <div class="col-6">
+                                    <h3>M&A 지원</h3>
+                                    <p>기업 인수합병을 통한 성장을 희망하는 기업들에게 맞춤형 M&A 전략 수립 및 실행을 지원합니다. 국내외 잠재적 파트너사 매칭 및 딜 구조화를
+                                        전문적으로 지원합니다.</p>
+                                    <ul class="feature-list">
+                                        <li>M&A 전략 컨설팅</li>
+                                        <li>기업 가치 평가 지원</li>
+                                        <li>인수합병 협상 및 법률 자문</li>
+                                    </ul>
+                                    <a href="investment-structure.html" class="btn btn-primary">금융 지원 옵션 자세히 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ipo-tab" class="tab-content">
+                            <!-- 상장 탭 내용 -->
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="상장 이미지" class="tab-image">
+                                </div>
+                                <div class="col-6">
+                                    <h3>상장 지원</h3>
+                                    <p>기업공개(IPO)를 목표로 하는 성장 기업들에게 필요한 전문 자문 및 프로세스 지원을 제공합니다. 상장 준비부터 성공적인 데뷔까지 모든 단계를
+                                        지원합니다.</p>
+                                    <ul class="feature-list">
+                                        <li>상장 준비 컨설팅</li>
+                                        <li>IR 자료 작성 및 로드쇼 지원</li>
+                                        <li>주관사 선정 및 협상 지원</li>
+                                    </ul>
+                                    <a href="investment-structure.html" class="btn btn-primary">금융 지원 옵션 자세히 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI 챔피언 로드 하이라이트 섹션 -->
+        <section class="section champion-section">
+            <div class="container">
+                <h2 class="section-title">AI 챔피언 로드 하이라이트</h2>
+                <div class="row align-items-center">
+                    <div class="col-6 fade-in-left">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI 챔피언 로드" class="feature-image">
+                            <div class="image-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 fade-in-right">
+                        <div class="content-box">
+                            <span class="subtitle">2025-2030</span>
+                            <h3 class="feature-title">AI 기술 국가 대표 육성 프로그램</h3>
+                            <div class="divider"></div>
+                            <p>AI 챔피언 로드는 한국의 AI 기술 기업들이 세계 시장에서 경쟁력을 갖출 수 있도록 지원하는 종합 프로그램입니다. 선정된 기업들은 단계별 투자와 전문 멘토링을
+                                통해 국제적인 AI 기술 리더로 성장할 수 있습니다.</p>
+                            <div class="investment-graph">
+                                <div class="graph-item">
+                                    <div class="graph-bar" style="height: 60px;"></div>
+                                    <span class="graph-label">시드 단계</span>
+                                    <span class="graph-value">최대 5억원</span>
+                                </div>
+                                <div class="graph-item">
+                                    <div class="graph-bar" style="height: 120px;"></div>
+                                    <span class="graph-label">성장 단계</span>
+                                    <span class="graph-value">최대 30억원</span>
+                                </div>
+                                <div class="graph-item">
+                                    <div class="graph-bar" style="height: 180px;"></div>
+                                    <span class="graph-label">확장 단계</span>
+                                    <span class="graph-value">최대 99억원</span>
+                                </div>
+                            </div>
+                            <a href="about.html" class="btn btn-primary">프로그램 자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 협회 경로 강조 섹션 -->
+        <section class="section light-bg process-section">
+            <div class="container">
+                <h2 class="section-title">협회 경로</h2>
+                <div class="process-diagram">
+                    <div class="process-step">
+                        <div class="process-icon">1</div>
+                        <h3>회원사 가입</h3>
+                        <p>한국인공지능협회 회원사로 가입하여 다양한 혜택을 누리세요.</p>
+                    </div>
+                    <div class="process-arrow"></div>
+                    <div class="process-step">
+                        <div class="process-icon">2</div>
+                        <h3>기술 검증</h3>
+                        <p>전문가 평가단의 기술 검증을 통해 기업의 기술력을 인증받습니다.</p>
+                    </div>
+                    <div class="process-arrow"></div>
+                    <div class="process-step">
+                        <div class="process-icon">3</div>
+                        <h3>투자 추천</h3>
+                        <p>검증된 기업은 골드 러쉬 파트너스의 투자 추천을 받게 됩니다.</p>
+                    </div>
+                    <div class="process-arrow"></div>
+                    <div class="process-step">
+                        <div class="process-icon">4</div>
+                        <h3>맞춤형 지원</h3>
+                        <p>기업 상황에 맞는 최적의 금융 지원 및 멘토링을 제공받습니다.</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn btn-primary">협회 가입 방법 알아보기</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 성과 수치 섹션 -->
+        <section class="section counter-section">
+            <div class="container">
+                <h2 class="section-title">성과 수치</h2>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="counter-card">
+                            <div class="counter" data-target="120">0</div>
+                            <p>지원 기업 수</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="counter-card">
+                            <div class="counter" data-target="2500">0</div>
+                            <p>총 투자 금액 (억원)</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="counter-card">
+                            <div class="counter" data-target="85">0</div>
+                            <p>성공적 성장률 (%)</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="counter-card">
+                            <div class="counter" data-target="32">0</div>
+                            <p>해외 진출 기업</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 비전 메시지 섹션 -->
+        <section class="section vision-section">
+            <div class="parallax-bg"></div>
+            <div class="container">
+                <div class="vision-content">
+                    <h2 class="vision-title">한국의 AI 기술로 세계를 바꾸는 여정에 함께합니다</h2>
+                    <p class="vision-text">AI 골드 러쉬 파트너스는 혁신적인 AI 기술 기업들이 세계 무대에서 빛날 수 있도록 지원합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 파트너 로고 슬라이더 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">파트너사</h2>
+                <div class="partner-slider">
+                    <div class="partner-logos">
+                        <!-- 로고 이미지들이 자동으로 스크롤됩니다 -->
+                        <div class="partner-logo"><img
+                                src="https://avatar.iran.liara.run/username?username=Acott+Wilson" alt="파트너사 1"></div>
+                        <div class="partner-logo"><img
+                                src="https://avatar.iran.liara.run/username?username=Bcott+Wilson" alt="파트너사 2"></div>
+                        <div class="partner-logo"><img
+                                src="https://avatar.iran.liara.run/username?username=Ccott+Wilson" alt="파트너사 3"></div>
+                        <div class="partner-logo"><img
+                                src="https://avatar.iran.liara.run/username?username=Dcott+Wilson" alt="파트너사 4"></div>
+                        <div class="partner-logo"><img
+                                src="https://avatar.iran.liara.run/username?username=Ecott+Wilson" alt="파트너사 5"></div>
+                        <div class="partner-logo"><img
+                                src="https://avatar.iran.liara.run/username?username=Fcott+Wilson" alt="파트너사 6"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터는 footer.js에서 자동으로 삽입됩니다 -->
+
+    <!-- JavaScript 파일 -->
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

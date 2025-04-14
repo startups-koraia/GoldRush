@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 대시보드 - AI 골드 러쉬 파트너스</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts - Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* 기본 설정 */
+
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 그리드 시스템 */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .col-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .col-8 {
+            flex: 0 0 66.666667%;
+            max-width: 66.666667%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        /* 공통 섹션 스타일 */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--text-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        /* 페이지 헤더 */
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 환영 배너 */
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .welcome-banner h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .welcome-banner p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        /* 대시보드 카드 */
+        .dashboard-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card h3 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        /* 통계 박스 */
+        .dashboard-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .stat-box {
+            text-align: center;
+            background-color: var(--light-gray);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            flex: 1;
+            margin: 0 8px;
+        }
+
+        .stat-box:first-child {
+            margin-left: 0;
+        }
+
+        .stat-box:last-child {
+            margin-right: 0;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* 타임라인 스타일 */
+        .process-timeline {
+            margin: 30px 0;
+        }
+
+        .process-timeline h4 {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+
+        .timeline-horizontal {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .timeline-horizontal::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--medium-gray);
+            z-index: 1;
+        }
+
+        .timeline-step {
+            position: relative;
+            text-align: center;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .timeline-point {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .timeline-step:nth-child(1) .timeline-point {
+            border-color: var(--accent-color);
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .timeline-step:nth-child(2) .timeline-point {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .timeline-step p {
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .text-success {
+            color: var(--accent-color);
+        }
+
+        .text-primary {
+            color: var(--primary-color);
+        }
+
+        .text-muted {
+            color: var(--dark-gray);
+        }
+
+        /* 진행 바 */
+        .progress-container {
+            margin-top: 30px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: var(--medium-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        /* 문서 리스트 */
+        .document-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .document-item:last-child {
+            border-bottom: none;
+        }
+
+        .document-icon {
+            flex: 0 0 40px;
+            font-size: 20px;
+        }
+
+        .document-icon .fa-check-circle {
+            color: var(--accent-color);
+        }
+
+        .document-icon .fa-clock {
+            color: var(--dark-gray);
+        }
+
+        .document-info {
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .document-info h4 {
+            margin: 0 0 5px;
+            font-size: 16px;
+        }
+
+        .document-meta {
+            font-size: 14px;
+            color: var(--dark-gray);
+            margin: 0;
+        }
+
+        /* 일정 아이템 */
+        .schedule-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+            padding-bottom: 20px;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .schedule-date {
+            display: block;
+            font-size: 14px;
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .event-title {
+            font-size: 16px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .event-time {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .event-location {
+            font-size: 14px;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        /* 알림 */
+        .notification-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .notification-title {
+            font-size: 16px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .notification-date {
+            font-size: 14px;
+            color: var(--dark-gray);
+        }
+
+        .notification-text {
+            font-size: 14px;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        /* 회원 콘텐츠 섹션 */
+        .member-content {
+            margin-top: 40px;
+        }
+
+        /* 탭 스타일 */
+        .member-tabs {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .tab-buttons {
+            display: flex;
+            background-color: var(--light-gray);
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .tab-button {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-color);
+            border-bottom: 3px solid transparent;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .tab-button.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            background-color: white;
+        }
+
+        .tab-button:hover:not(.active) {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .tab-contents {
+            padding: 25px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-panel {
+            margin-bottom: 20px;
+        }
+
+        .tab-panel h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        /* 카드 스타일 */
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            height: 100%;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        /* 피쳐 카드 */
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            height: 100%;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        /* 버튼 스타일 */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background-color: rgba(49, 87, 220, 0.1);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(49, 87, 220, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .mt-4 {
+            margin-top: 20px;
+        }
+
+        /* CTA 섹션 */
+        .cta-section {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .cta-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 992px) {
+
+            .col-4,
+            .col-6,
+            .col-8 {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .dashboard-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .stat-box {
+                margin: 0;
+            }
+
+            .timeline-horizontal {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .timeline-horizontal::before {
+                display: none;
+            }
+
+            .tab-buttons {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                flex: 1 0 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .tab-button {
+                flex: 1 0 100%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* 텍스트 중앙 정렬 */
+        .text-center {
+            text-align: center;
+        }
+    </style>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- 헤더는 header.js에서 자동으로 삽입됩니다 -->
+
+    <!-- 메인 컨텐츠 -->
+    <main class="member-dashboard">
+        <!-- 페이지 헤더 섹션 -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">회원 대시보드</h1>
+                <p class="page-subtitle">AI 챔피언 로드 프로그램 회원 전용 페이지에 오신 것을 환영합니다</p>
+            </div>
+        </section>
+
+        <!-- 메인 섹션 -->
+        <section class="section">
+            <div class="container">
+                <!-- 환영 배너 -->
+                <div class="welcome-banner">
+                    <h2>안녕하세요, 김AI님!</h2>
+                    <p>AI 챔피언 로드 프로그램에 참여해 주셔서 감사합니다. 이 대시보드에서 투자 진행 상황을 확인하고 전용 자료와 컨설팅을 이용하실 수 있습니다.</p>
+                    <a href="#" class="btn btn-secondary">프로필 업데이트</a>
+                </div>
+
+                <!-- 진행 상태 -->
+                <div class="row">
+                    <div class="col-8">
+                        <div class="dashboard-card">
+                            <h3>투자 진행 현황</h3>
+                            <div class="dashboard-stats">
+                                <div class="stat-box">
+                                    <div class="stat-value">2단계</div>
+                                    <div class="stat-label">현재 단계</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">75%</div>
+                                    <div class="stat-label">진행률</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">2025.05.15</div>
+                                    <div class="stat-label">다음 미팅</div>
+                                </div>
+                            </div>
+
+                            <div class="process-timeline">
+                                <h4>진행 단계</h4>
+                                <div class="timeline-horizontal">
+                                    <div class="timeline-step">
+                                        <div class="timeline-point">1</div>
+                                        <p>서류 심사<br><span class="text-success">완료</span></p>
+                                    </div>
+                                    <div class="timeline-step">
+                                        <div class="timeline-point">2</div>
+                                        <p>실사 진행<br><span class="text-primary">진행 중</span></p>
+                                    </div>
+                                    <div class="timeline-step">
+                                        <div class="timeline-point">3</div>
+                                        <p>투자 심의<br><span class="text-muted">예정</span></p>
+                                    </div>
+                                    <div class="timeline-step">
+                                        <div class="timeline-point">4</div>
+                                        <p>계약 및 투자<br><span class="text-muted">예정</span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>전체 진행률</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 문서 및 자료 -->
+                        <div class="dashboard-card">
+                            <h3>필요 문서 및 제출 자료</h3>
+                            <ul class="document-list">
+                                <li class="document-item">
+                                    <div class="document-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="document-info">
+                                        <h4>사업계획서</h4>
+                                        <p class="document-meta">2025.04.10 제출 완료</p>
+                                    </div>
+                                    <div class="document-actions">
+                                        <a href="#" class="btn btn-outline">보기</a>
+                                    </div>
+                                </li>
+                                <li class="document-item">
+                                    <div class="document-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="document-info">
+                                        <h4>재무제표</h4>
+                                        <p class="document-meta">2025.04.10 제출 완료</p>
+                                    </div>
+                                    <div class="document-actions">
+                                        <a href="#" class="btn btn-outline">보기</a>
+                                    </div>
+                                </li>
+                                <li class="document-item">
+                                    <div class="document-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="document-info">
+                                        <h4>기술 검증 보고서</h4>
+                                        <p class="document-meta">2025.04.25 제출 필요</p>
+                                    </div>
+                                    <div class="document-actions">
+                                        <a href="#" class="btn btn-primary">업로드</a>
+                                    </div>
+                                </li>
+                                <li class="document-item">
+                                    <div class="document-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="document-info">
+                                        <h4>인력 구성 및 조직도</h4>
+                                        <p class="document-meta">2025.04.25 제출 필요</p>
+                                    </div>
+                                    <div class="document-actions">
+                                        <a href="#" class="btn btn-primary">업로드</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <!-- 예정된 일정 -->
+                        <div class="dashboard-card">
+                            <h3>예정된 일정</h3>
+                            <div class="schedule-item">
+                                <span class="schedule-date">2025년 4월 20일</span>
+                                <div class="schedule-event">
+                                    <div class="event-header">
+                                        <h4 class="event-title">기술 검증 미팅</h4>
+                                        <span class="event-time">오후 2시</span>
+                                    </div>
+                                    <p class="event-location">온라인 화상 회의</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <span class="schedule-date">2025년 5월 15일</span>
+                                <div class="schedule-event">
+                                    <div class="event-header">
+                                        <h4 class="event-title">투자심사위원회 발표</h4>
+                                        <span class="event-time">오후 3시</span>
+                                    </div>
+                                    <p class="event-location">서울 강남구 AI 이노베이션 센터</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <span class="schedule-date">2025년 5월 30일</span>
+                                <div class="schedule-event">
+                                    <div class="event-header">
+                                        <h4 class="event-title">계약 협의</h4>
+                                        <span class="event-time">오전 10시</span>
+                                    </div>
+                                    <p class="event-location">서울 강남구 AI 이노베이션 센터</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 알림 -->
+                        <div class="dashboard-card">
+                            <h3>알림</h3>
+                            <div class="notification-item">
+                                <div class="notification-header">
+                                    <h4 class="notification-title">문서 제출 요청</h4>
+                                    <span class="notification-date">오늘</span>
+                                </div>
+                                <p class="notification-text">기술 검증 보고서를 2025년 4월 25일까지 제출해주세요.</p>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-header">
+                                    <h4 class="notification-title">미팅 일정 확정</h4>
+                                    <span class="notification-date">어제</span>
+                                </div>
+                                <p class="notification-text">투자심사위원회 발표 일정이 5월 15일로 확정되었습니다.</p>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-header">
+                                    <h4 class="notification-title">문서 검토 완료</h4>
+                                    <span class="notification-date">3일 전</span>
+                                </div>
+                                <p class="notification-text">귀사의 사업계획서와 재무제표 검토가 완료되었습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 투자자 전용 자료 -->
+                <div class="member-content">
+                    <h2 class="section-title">회원 전용 자료</h2>
+
+                    <div class="member-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-button active" data-tab="tab1">교육 자료</button>
+                            <button class="tab-button" data-tab="tab2">멘토링 프로그램</button>
+                            <button class="tab-button" data-tab="tab3">네트워킹</button>
+                            <button class="tab-button" data-tab="tab4">지원 프로그램</button>
+                        </div>
+
+                        <div class="tab-contents">
+                            <div class="tab-content active" id="tab1">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="card">
+                                            <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI 기술 로드맵" class="card-img">
+                                            <div class="card-body">
+                                                <h3 class="card-title">AI 기술 로드맵 2025-2030</h3>
+                                                <p class="card-text">AI 기술의 발전 방향과 트렌드를 예측하는 전략적 로드맵입니다. 투자자와 창업자들을 위한
+                                                    필수 가이드.</p>
+                                                <a href="#" class="btn btn-primary">자료 다운로드</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="card">
+                                            <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="스케일업 전략" class="card-img">
+                                            <div class="card-body">
+                                                <h3 class="card-title">AI 스타트업 스케일업 전략</h3>
+                                                <p class="card-text">초기 단계에서 스케일업까지, AI 스타트업이 성공적으로 성장하기 위한 단계별 전략 가이드.
+                                                </p>
+                                                <a href="#" class="btn btn-primary">자료 다운로드</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="card">
+                                            <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="해외 진출 전략" class="card-img">
+                                            <div class="card-body">
+                                                <h3 class="card-title">글로벌 마켓 진출 전략</h3>
+                                                <p class="card-text">한국 AI 기업들의 북미, 유럽, 동남아 시장 진출을 위한 전략적 가이드와 성공 사례 분석.
+                                                </p>
+                                                <a href="#" class="btn btn-primary">자료 다운로드</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="tab2">
+                                <div class="tab-panel">
+                                    <h3>전문가 멘토링 프로그램</h3>
+                                    <p>AI 골드 러쉬 파트너스의 전문가 네트워크를 통해 기술, 사업, 투자 등 다양한 분야의 멘토링을 받을 수 있습니다.</p>
+
+                                    <div class="row mt-4">
+                                        <div class="col-6">
+                                            <div class="feature-card">
+                                                <div class="feature-icon">
+                                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="1:1 멘토링">
+                                                </div>
+                                                <h3>1:1 전문가 멘토링</h3>
+                                                <p>각 분야 전문가와의 1:1 멘토링 세션을 통해 기업의 도전 과제를 해결할 수 있습니다.</p>
+                                                <a href="#" class="btn btn-outline mt-4">멘토링 신청</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="feature-card">
+                                                <div class="feature-icon">
+                                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="그룹 멘토링">
+                                                </div>
+                                                <h3>그룹 멘토링 세션</h3>
+                                                <p>유사한 단계의 AI 스타트업들과 함께하는 그룹 멘토링을 통해 네트워킹과 협업 기회를 얻을 수 있습니다.</p>
+                                                <a href="#" class="btn btn-outline mt-4">세션 확인</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="tab3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="dashboard-card">
+                                            <h3>네트워킹 이벤트</h3>
+                                            <p>회원사 전용 네트워킹 이벤트에 참여하여 투자자, 기업 파트너, 다른 AI 스타트업들과 교류할 수 있습니다.</p>
+
+                                            <div class="row mt-4">
+                                                <div class="col-4">
+                                                    <div class="card">
+                                                        <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI 데모 데이"
+                                                            class="card-img">
+                                                        <div class="card-body">
+                                                            <h3 class="card-title">AI 데모 데이</h3>
+                                                            <p class="card-text">2025년 5월 20일 | 서울</p>
+                                                            <a href="#" class="btn btn-primary">신청하기</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="card">
+                                                        <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="투자자 밋업"
+                                                            class="card-img">
+                                                        <div class="card-body">
+                                                            <h3 class="card-title">투자자 밋업</h3>
+                                                            <p class="card-text">2025년 6월 5일 | 온라인</p>
+                                                            <a href="#" class="btn btn-primary">신청하기</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="card">
+                                                        <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="글로벌 파트너십 포럼"
+                                                            class="card-img">
+                                                        <div class="card-body">
+                                                            <h3 class="card-title">글로벌 파트너십 포럼</h3>
+                                                            <p class="card-text">2025년 7월 15일 | 부산</p>
+                                                            <a href="#" class="btn btn-primary">신청하기</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="tab4">
+                                <div class="tab-panel">
+                                    <h3>지원 프로그램</h3>
+                                    <p>AI 골드 러쉬 파트너스의 회원사는 다양한 추가 지원 프로그램을 이용할 수 있습니다.</p>
+
+                                    <div class="row mt-4">
+                                        <div class="col-6">
+                                            <div class="feature-card">
+                                                <div class="feature-icon">
+                                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="클라우드 크레딧">
+                                                </div>
+                                                <h3>클라우드 크레딧</h3>
+                                                <p>주요 클라우드 서비스 제공업체의 크레딧을 지원 받아 인프라 비용을 절감할 수 있습니다.</p>
+                                                <a href="#" class="btn btn-outline mt-4">신청하기</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="feature-card">
+                                                <div class="feature-icon">
+                                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="법률 지원">
+                                                </div>
+                                                <h3>법률 및 특허 지원</h3>
+                                                <p>지식재산권 보호, 계약 검토, 법률 자문 등 스타트업에 필요한 법률 서비스를 지원받을 수 있습니다.</p>
+                                                <a href="#" class="btn btn-outline mt-4">상담 예약</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-6">
+                                            <div class="feature-card">
+                                                <div class="feature-icon">
+                                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="인재 채용">
+                                                </div>
+                                                <h3>인재 채용 지원</h3>
+                                                <p>AI 전문 인력 채용을 위한 채용 플랫폼 이용권과 헤드헌팅 서비스를 지원받을 수 있습니다.</p>
+                                                <a href="#" class="btn btn-outline mt-4">신청하기</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="feature-card">
+                                                <div class="feature-icon">
+                                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="마케팅 지원">
+                                                </div>
+                                                <h3>마케팅 및 PR 지원</h3>
+                                                <p>마케팅 전략 수립, 콘텐츠 제작, 미디어 노출 등 스타트업의 브랜드 구축을 지원합니다.</p>
+                                                <a href="#" class="btn btn-outline mt-4">신청하기</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA 섹션 -->
+        <section class="section cta-section">
+            <div class="container">
+                <div class="cta-content text-center">
+                    <h2>도움이 필요하신가요?</h2>
+                    <p>추가적인 지원이 필요하거나 궁금한 점이 있으시면 언제든지 담당 매니저에게 문의하세요.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">문의하기</a>
+                        <a href="#" class="btn btn-secondary">1:1 상담 예약</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터는 footer.js에서 자동으로 삽입됩니다 -->
+
+    <!-- JavaScript 파일 -->
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // 탭 기능 구현
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // 모든 탭 버튼에서 active 클래스 제거
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // 모든 탭 콘텐츠에서 active 클래스 제거
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // 클릭한 버튼에 active 클래스 추가
+                    this.classList.add('active');
+
+                    // 해당하는 탭 콘텐츠에 active 클래스 추가
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

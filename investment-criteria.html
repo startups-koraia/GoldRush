@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투자 기준 | AI 골드 러쉬 파트너스</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts - Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- 헤더는 header.js에서 자동으로 삽입됩니다 -->
+    
+    <!-- 메인 컨텐츠 -->
+    <main>
+        <!-- 페이지 헤더 섹션 -->
+        <section class="page-header">
+            <div class="container">
+                <h1>투자 기준</h1>
+                <p class="subtitle">AI 골드 러쉬 파트너스의 투자 대상 및 평가 기준</p>
+            </div>
+        </section>
+
+        <!-- 탭 네비게이션 -->
+        <section class="section tab-section">
+            <div class="container">
+                <div class="tab-navigation">
+                    <button class="tab-nav-btn active" data-tab="requirements">지원 자격 요건</button>
+                    <button class="tab-nav-btn" data-tab="fields">투자 분야</button>
+                    <button class="tab-nav-btn" data-tab="evaluation">평가 기준</button>
+                    <button class="tab-nav-btn" data-tab="recommendation">협회 추천 기준</button>
+                </div>
+
+                <!-- 자격 요건 탭 내용 -->
+                <div class="tab-content active" id="requirements">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="section-subtitle">금융 지원 유형별 자격 요건</h2>
+                            <p class="intro-text">AI 골드 러쉬 파트너스는 기업의 성장 단계와 목표에 따라 다양한 금융 지원을 제공합니다. 각 지원 유형별 자격 요건을 확인하세요.</p>
+                        </div>
+                    </div>
+
+                    <div class="criteria-accordions">
+                        <!-- 투자 지원 요건 -->
+                        <div class="criteria-item">
+                            <div class="criteria-header">
+                                <h3>투자 지원 요건</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="criteria-content">
+                                <div class="requirements-checklist">
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>기술 검증</h4>
+                                            <p>한국인공지능협회의 기술 평가 인증을 보유하거나 획득 가능한 AI 기술을 보유해야 합니다.</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>사업 기간</h4>
+                                            <p>시드 투자: 법인 설립 후 1년 이상<br>시리즈 A 이상: 법인 설립 후 2년 이상 및 시장 검증된 서비스 운영</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>팀 구성</h4>
+                                            <p>AI 관련 분야 전문 인력 최소 2인 이상 보유(박사급 1인 이상 권장)</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>지적재산권</h4>
+                                            <p>핵심 기술에 대한 특허 출원 또는 등록 (권장사항)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="download-box">
+                                    <a href="#" class="btn btn-outline">투자 지원 가이드라인 다운로드 (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 대출 지원 요건 -->
+                        <div class="criteria-item">
+                            <div class="criteria-header">
+                                <h3>대출 지원 요건</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="criteria-content">
+                                <div class="requirements-checklist">
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>사업 기간</h4>
+                                            <p>법인 설립 후 최소 2년 이상</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>재무 상태</h4>
+                                            <p>최근 2개년 연속 매출 발생 및 재무제표 제출 가능</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>협회 회원사</h4>
+                                            <p>한국인공지능협회 정회원사 자격 보유</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>대출 용도</h4>
+                                            <p>R&D, 시설 투자, 운영 자금 등 명확한 자금 사용 계획 제시</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="download-box">
+                                    <a href="#" class="btn btn-outline">대출 지원 가이드라인 다운로드 (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- M&A 지원 요건 -->
+                        <div class="criteria-item">
+                            <div class="criteria-header">
+                                <h3>M&A 지원 요건</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="criteria-content">
+                                <div class="requirements-checklist">
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>기업 가치</h4>
+                                            <p>최소 50억원 이상의 기업 가치 평가 가능</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>기술 차별성</h4>
+                                            <p>시장에서 검증된 독자적 AI 기술 보유</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>실적</h4>
+                                            <p>최근 3년간 안정적인 매출 성장 또는 사용자 증가 실적</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>경영진 의지</h4>
+                                            <p>M&A에 대한 명확한 비전과 경영진 합의</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="download-box">
+                                    <a href="#" class="btn btn-outline">M&A 지원 가이드라인 다운로드 (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 상장 지원 요건 -->
+                        <div class="criteria-item">
+                            <div class="criteria-header">
+                                <h3>상장 지원 요건</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="criteria-content">
+                                <div class="requirements-checklist">
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>사업 기간</h4>
+                                            <p>법인 설립 후 최소 5년 이상</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>재무 기준</h4>
+                                            <p>최근 3년 연속 매출 성장 및 최근 연도 영업이익 흑자</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>시장 지위</h4>
+                                            <p>해당 AI 분야에서 국내 시장점유율 상위 또는 혁신적 기술력 인정</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="check-icon"></div>
+                                        <div class="requirement-text">
+                                            <h4>지배구조</h4>
+                                            <p>투명한 지배구조 및 내부통제시스템 구축</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="download-box">
+                                    <a href="#" class="btn btn-outline">상장 지원 가이드라인 다운로드 (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 투자 분야 탭 내용 -->
+                <div class="tab-content" id="fields">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="section-subtitle">주요 투자 분야</h2>
+                            <p class="intro-text">AI 골드 러쉬 파트너스는 다음과 같은 분야의 AI 기술 기업들을 중점적으로 지원합니다. 각 분야별 세부 기술 영역과 투자 현황을 확인하세요.</p>
+                        </div>
+                    </div>
+
+                    <div class="investment-fields">
+                        <div class="field-categories">
+                            <div class="category-item active" data-field="nlp">
+                                <div class="category-icon">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="자연어 처리">
+                                </div>
+                                <h3>자연어 처리</h3>
+                            </div>
+                            <div class="category-item" data-field="vision">
+                                <div class="category-icon">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="컴퓨터 비전">
+                                </div>
+                                <h3>컴퓨터 비전</h3>
+                            </div>
+                            <div class="category-item" data-field="robotics">
+                                <div class="category-icon">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="로보틱스">
+                                </div>
+                                <h3>로보틱스</h3>
+                            </div>
+                            <div class="category-item" data-field="healthcare">
+                                <div class="category-icon">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="헬스케어">
+                                </div>
+                                <h3>의료/헬스케어</h3>
+                            </div>
+                            <div class="category-item" data-field="finance">
+                                <div class="category-icon">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="금융">
+                                </div>
+                                <h3>금융</h3>
+                            </div>
+                            <div class="category-item" data-field="manufacturing">
+                                <div class="category-icon">
+                                    <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="제조">
+                                </div>
+                                <h3>제조</h3>
+                            </div>
+                        </div>
+
+                        <div class="field-details">
+                            <div class="field-detail active" id="nlp-details">
+                                <div class="field-header">
+                                    <h3>자연어 처리 (NLP) 분야</h3>
+                                    <div class="investment-stats">
+                                        <div class="stat">
+                                            <span class="stat-value">25%</span>
+                                            <span class="stat-label">포트폴리오 비중</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-value">15개</span>
+                                            <span class="stat-label">투자 기업 수</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sub-fields">
+                                    <div class="sub-field">
+                                        <h4>대화형 AI</h4>
+                                        <p>챗봇, 가상 비서, 고객 서비스 자동화</p>
+                                    </div>
+                                    <div class="sub-field">
+                                        <h4>언어 번역</h4>
+                                        <p>실시간 다국어 번역, 전문 분야 특화 번역</p>
+                                    </div>
+                                    <div class="sub-field">
+                                        <h4>텍스트 분석</h4>
+                                        <p>감성 분석, 정보 추출, 텍스트 요약</p>
+                                    </div>
+                                    <div class="sub-field">
+                                        <h4>콘텐츠 생성</h4>
+                                        <p>자동 글쓰기, 맞춤형 콘텐츠 생성</p>
+                                    </div>
+                                </div>
+                                <div class="success-cases">
+                                    <h4>관련 성공 사례</h4>
+                                    <div class="case-links">
+                                        <a href="#" class="case-link">뉴로플럭스 - 다국어 번역 플랫폼</a>
+                                        <a href="#" class="case-link">텍스트허브 - 산업 특화 감성 분석 솔루션</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 다른 분야의 상세 내용은 JavaScript로 전환됩니다 -->
+                        </div>
+                    </div>
+
+                    <div class="investment-distribution">
+                        <h3>분야별 투자 현황</h3>
+                        <div class="chart-container">
+                            <canvas id="investmentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 평가 기준 탭 내용 -->
+                <div class="tab-content" id="evaluation">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="section-subtitle">평가 기준</h2>
+                            <p class="intro-text">AI 골드 러쉬 파트너스는 기술력, 비즈니스 모델, 팀 역량 등 다양한 측면에서 종합적인 평가를 진행합니다. 각 영역별 주요 평가 항목을 확인하세요.</p>
+                        </div>
+                    </div>
+
+                    <div class="evaluation-categories">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="evaluation-category">
+                                    <div class="category-header">
+                                        <div class="category-icon">
+                                            <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="기술 평가">
+                                        </div>
+                                        <h3>기술 평가 (40%)</h3>
+                                    </div>
+                                    <ul class="evaluation-list">
+                                        <li>AI 기술의 혁신성 및 차별성</li>
+                                        <li>기술 완성도 및 구현 가능성</li>
+                                        <li>확장성 및 미래 발전 가능성</li>
+                                        <li>기술 적용 분야의 적합성</li>
+                                        <li>지적재산권 확보 현황</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="evaluation-category">
+                                    <div class="category-header">
+                                        <div class="category-icon">
+                                            <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="비즈니스 평가">
+                                        </div>
+                                        <h3>비즈니스 평가 (30%)</h3>
+                                    </div>
+                                    <ul class="evaluation-list">
+                                        <li>시장 규모 및 성장 잠재력</li>
+                                        <li>비즈니스 모델의 지속가능성</li>
+                                        <li>매출 및 수익성 전망</li>
+                                        <li>고객 확보 전략 및 실행력</li>
+                                        <li>경쟁 우위 요소</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="evaluation-category">
+                                    <div class="category-header">
+                                        <div class="category-icon">
+                                            <img src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="팀 평가">
+                                        </div>
+                                        <h3>팀 평가 (30%)</h3>
+                                    </div>
+                                    <ul class="evaluation-list">
+                                        <li>창업팀의 전문성 및 경력</li>
+                                        <li>핵심 인력의 기술력</li>
+                                        <li>실행력 및 위기 대응 능력</li>
+                                        <li>팀 구성의 균형과 다양성</li>
+                                        <li>비전 공유 및 조직 문화</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evaluation-radar">
+                        <h3>평가 영역 중요도</h3>
+                        <div class="radar-chart-container">
+                            <canvas id="evaluationRadarChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="self-assessment">
+                        <h3>자가 평가 도구</h3>
+                        <p>귀사의 현재 상황을 아래 항목별로 평가해 보세요. 투자 준비도를 확인할 수 있습니다.</p>
+
+                        <div class="assessment-sliders">
+                            <div class="slider-item">
+                                <label>기술 혁신성</label>
+                                <input type="range" min="1" max="10" value="5" class="assessment-slider">
+                                <div class="slider-value">5/10</div>
+                            </div>
+                            <div class="slider-item">
+                                <label>시장 잠재력</label>
+                                <input type="range" min="1" max="10" value="5" class="assessment-slider">
+                                <div class="slider-value">5/10</div>
+                            </div>
+                            <div class="slider-item">
+                                <label>팀 역량</label>
+                                <input type="range" min="1" max="10" value="5" class="assessment-slider">
+                                <div class="slider-value">5/10</div>
+                            </div>
+                            <div class="slider-item">
+                                <label>비즈니스 모델</label>
+                                <input type="range" min="1" max="10" value="5" class="assessment-slider">
+                                <div class="slider-value">5/10</div>
+                            </div>
+                            <div class="slider-item">
+                                <label>성장 가능성</label>
+                                <input type="range" min="1" max="10" value="5" class="assessment-slider">
+                                <div class="slider-value">5/10</div>
+                            </div>
+                        </div>
+
+                        <div class="assessment-result">
+                            <div class="result-score">준비도: <span id="readinessScore">50</span>%</div>
+                            <div class="result-message">귀사는 현재 투자 유치를 위한 준비가 일부 진행된 상태입니다. 자세한 컨설팅을 통해 부족한 부분을 보완하시기 바랍니다.</div>
+                            <a href="#" class="btn btn-primary">맞춤형 컨설팅 문의</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 협회 추천 기준 탭 내용 -->
+                <div class="tab-content" id="recommendation">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="section-subtitle">협회 추천 기준</h2>
+                            <p class="intro-text">한국인공지능협회의 추천을 받기 위한 절차와 기준을 안내합니다. 협회의 추천은 AI 골드 러쉬 파트너스의 투자 심사 과정에서 중요한 평가 요소입니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-process">
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">01</div>
+                                <div class="step-content">
+                                    <h3>회원사 가입</h3>
+                                    <p>한국인공지능협회 회원사로 가입하여 기본 자격을 갖춥니다.</p>
+                                    <a href="#" class="text-link">회원사 가입 안내 &rarr;</a>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">02</div>
+                                <div class="step-content">
+                                    <h3>기술 평가 신청</h3>
+                                    <p>협회의 기술 평가 신청서 및 관련 자료를 제출합니다.</p>
+                                    <a href="#" class="text-link">평가 신청서 다운로드 &rarr;</a>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">03</div>
+                                <div class="step-content">
+                                    <h3>전문가 평가단 심사</h3>
+                                    <p>AI 분야별 전문가로 구성된 평가단의 심층 기술 검토가 진행됩니다.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">04</div>
+                                <div class="step-content">
+                                    <h3>심사 결과 통보</h3>
+                                    <p>평가 결과와 피드백이 제공되며, 통과 시 추천서가 발급됩니다.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">05</div>
+                                <div class="step-content">
+                                    <h3>투자 심사 진행</h3>
+                                    <p>협회 추천서를 첨부하여 AI 골드 러쉬 파트너스 투자 심사를 신청합니다.</p>
+                                    <a href="apply.html" class="text-link">투자 신청하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-checklist">
+                        <h3>협회 추천 준비 체크리스트</h3>
+                        <div class="checklist-container">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check1" class="checklist-checkbox">
+                                <label for="check1">회원사 등록 및 회비 납부 완료</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check2" class="checklist-checkbox">
+                                <label for="check2">기업 소개 자료 및 비즈니스 플랜 준비</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check3" class="checklist-checkbox">
+                                <label for="check3">핵심 기술 설명 자료 및 데모 준비</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check4" class="checklist-checkbox">
+                                <label for="check4">재무제표 및 사업 실적 증빙 자료</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check5" class="checklist-checkbox">
+                                <label for="check5">특허 및 지적재산권 증빙 자료</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check6" class="checklist-checkbox">
+                                <label for="check6">팀 구성원 이력서 및 경력 증명서</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check7" class="checklist-checkbox">
+                                <label for="check7">협회 활동 참여 기록 (선택사항)</label>
+                            </div>
+                        </div>
+
+                        <div class="cta-container">
+                            <a href="#" class="btn btn-primary">추천서 신청하기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ 섹션 -->
+        <section class="section light-bg faq-section">
+            <div class="container">
+                <h2 class="section-title">자주 묻는 질문</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>회원사가 아니어도 투자 신청이 가능한가요?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>원칙적으로 한국인공지능협회 회원사만 AI 골드 러쉬 파트너스의 투자 프로그램에 참여할 수 있습니다. 단, 예외적으로 매우 혁신적인 기술력을 보유한 기업의 경우, 협회 가입과 투자 심사를 동시에 진행할 수 있는 패스트 트랙이 마련되어 있습니다. 자세한 내용은 문의 바랍니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>투자 심사는 얼마나 걸리나요?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>일반적으로 협회 추천을 포함한 전체 심사 과정은 약 1~2개월이 소요됩니다. 협회 추천이 이미 완료된 경우, 투자 심사는 약 3~4주 내에 진행됩니다. 단, 기업의 상황과 투자 규모에 따라 기간이 달라질 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>해외에 법인을 둔 한국계 AI 기업도 지원 가능한가요?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>네, 가능합니다. 한국인 창업자가 설립한 해외 법인도 핵심 R&D 활동이 국내에서 이루어지거나, 한국 시장 진출 계획이 있는 경우 지원 대상이 될 수 있습니다. 다만, 추가적인 서류 제출이 필요할 수 있으며, 협회 회원사 자격 요건에 대한 검토가 진행됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>투자 유치에 실패한 경우, 재신청이 가능한가요?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>네, 가능합니다. 심사 결과와 함께 제공되는 피드백을 바탕으로 보완한 후, 6개월 이후에 재신청하실 수 있습니다. 재신청 시에는 이전에 지적된 사항들이 어떻게 개선되었는지를 중점적으로 설명해 주시기 바랍니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA 섹션 -->
+        <section class="section cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>AI 기술로 세계를 선도할 준비가 되셨나요?</h2>
+                    <p>지금 바로 투자 신청을 시작하고 AI 챔피언 로드에 동참하세요.</p>
+                    <div class="cta-buttons">
+                        <a href="apply.html" class="btn btn-primary">투자 신청하기</a>
+                        <a href="contact.html" class="btn btn-secondary">문의하기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 푸터는 footer.js에서 자동으로 삽입됩니다 -->
+
+    <!-- JavaScript 파일 -->
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // 차트 데이터 (실제 구현 시에는 동적 데이터로 대체)
+        document.addEventListener('DOMContentLoaded', function() {
+            // 투자 분야 차트
+            const investmentCtx = document.getElementById('investmentChart');
+            if(investmentCtx) {
+                new Chart(investmentCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['자연어 처리', '컴퓨터 비전', '로보틱스', '헬스케어', '금융', '제조'],
+                        datasets: [{
+                            data: [25, 20, 15, 15, 15, 10],
+                            backgroundColor: [
+                                '#1A365D', '#2A4365', '#2C5282', 
+                                '#2B6CB0', '#3182CE', '#4299E1'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                            },
+                            title: {
+                                display: true,
+                                text: '분야별 투자 비중 (%)'
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 평가 레이더 차트
+            const radarCtx = document.getElementById('evaluationRadarChart');
+            if(radarCtx) {
+                new Chart(radarCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            '기술 혁신성', '기술 완성도', '시장 규모',
+                            '비즈니스 모델', '팀 역량', '성장 가능성'
+                        ],
+                        datasets: [{
+                            label: '평가 중요도',
+                            data: [9, 8, 7, 8, 9, 8],
+                            fill: true,
+                            backgroundColor: 'rgba(26, 54, 93, 0.2)',
+                            borderColor: '#1A365D',
+                            pointBackgroundColor: '#1A365D',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#1A365D'
+                        }]
+                    },
+                    options: {
+                        elements: {
+                            line: {
+                                borderWidth: 3
+                            }
+                        },
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 10
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 자가 평가 슬라이더 기능
+            const sliders = document.querySelectorAll('.assessment-slider');
+            if(sliders.length > 0) {
+                sliders.forEach(slider => {
+                    const valueDisplay = slider.nextElementSibling;
+                    
+                    slider.addEventListener('input', function() {
+                        valueDisplay.textContent = this.value + '/10';
+                        updateReadinessScore();
+                    });
+                });
+            }
+
+            function updateReadinessScore() {
+                const sliders = document.querySelectorAll('.assessment-slider');
+                let totalScore = 0;
+                
+                sliders.forEach(slider => {
+                    totalScore += parseInt(slider.value);
+                });
+                
+                const readinessScore = Math.round((totalScore / (sliders.length * 10)) * 100);
+                document.getElementById('readinessScore').textContent = readinessScore;
+                
+                const resultMessage = document.querySelector('.result-message');
+                if(readinessScore < 30) {
+                    resultMessage.textContent = '투자 유치를 위한 준비가 더 필요합니다. 부족한 영역을 집중적으로 보완하시기 바랍니다.';
+                } else if(readinessScore < 60) {
+                    resultMessage.textContent = '귀사는 현재 투자 유치를 위한 준비가 일부 진행된 상태입니다. 자세한 컨설팅을 통해 부족한 부분을 보완하시기 바랍니다.';
+                } else if(readinessScore < 80) {
+                    resultMessage.textContent = '투자 유치를 위한 준비가 잘 되어 있습니다. 몇 가지 영역만 보완하면 높은 평가를 받을 수 있을 것입니다.';
+                } else {
+                    resultMessage.textContent = '투자 유치를 위한 준비가 매우 잘 되어 있습니다. 지금 바로 투자 신청을 진행해보세요.';
+                }
+            }
+
+            // 탭 전환 기능
+            const tabButtons = document.querySelectorAll('.tab-nav-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const target = button.dataset.tab;
+                    
+                    // 버튼 활성화 상태 변경
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // 컨텐츠 표시 전환
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if(content.id === target) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // 아코디언 기능
+            const accordionHeaders = document.querySelectorAll('.criteria-header, .faq-question');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const parent = header.parentElement;
+                    parent.classList.toggle('active');
+                    
+                    const icon = header.querySelector('.toggle-icon');
+                    if(icon) {
+                        icon.textContent = parent.classList.contains('active') ? '-' : '+';
+                    }
+                });
+            });
+
+            // 투자 분야 탭 전환
+            const fieldCategories = document.querySelectorAll('.category-item');
+            
+            fieldCategories.forEach(category => {
+                category.addEventListener('click', () => {
+                    const field = category.dataset.field;
+                    
+                    // 카테고리 활성화
+                    fieldCategories.forEach(cat => cat.classList.remove('active'));
+                    category.classList.add('active');
+                    
+                    // 해당 필드 상세 정보 표시 (실제로는 AJAX로 데이터 로드 또는 모든 데이터를 미리 로드하고 표시/숨김 처리)
+                    document.querySelectorAll('.field-detail').forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    
+                    const targetDetail = document.getElementById(field + '-details');
+                    if(targetDetail) {
+                        targetDetail.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
